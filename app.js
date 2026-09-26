@@ -123,8 +123,32 @@ console.log ("Jumlah Poin adalah " + JUMLAH_POIN);
 // 3. Cetak hasil tierMember dan benefit ke Console.
 // 4. Tampilkan ringkasan hasil member (nama, total poin, tier, benefit) via dialog alert().
 
+if (JUMLAH_POIN >= 100) {
+    Member = "Platinum";
+    Benefit = "Diskon 20% + Gratis 1 Minuman Cappucino";
+}
+else if (JUMLAH_POIN >= 70) {
+    Member = "Gold";
+    Benefit = "Diskon 10% di setiap transaksi";
+}
+else if (JUMLAH_POIN >= 40) {
+    Member = "Silver";
+    Benefit = "Diskon 5% untuk menu minuman";
+}
+else {
+    Member = "Bronze";
+    Benefit = "Member Reguler (Kumpulkan Poin Lagi";
+}
 
+console.log ("tiermember : " + Member);
+console.log ("Hadiah : " + Benefit);
 
+alert(
+    "Pelanggan : " + NAMA_PELANGGAN +
+    "\n JUMLAH_POIN : " + JUMLAH_POIN +
+    "\n Member : " + Member +
+    "\n Benefit : " + Benefit
+);
 
 // ============================================================
 // AKTIVITAS 5: Function — Membuat Fungsi yang Bisa Dipakai Ulang
@@ -134,6 +158,10 @@ console.log ("Jumlah Poin adalah " + JUMLAH_POIN);
 // Buat fungsi "hitungTotalPoin(p1, p2, p3)" yang menerima 3 parameter nilai poin,
 // menjumlahkannya, dan mengembalikan (return) nilai total penjumlahannya.
 
+function HITUNG_JUMLAH_POIN (p1, p2, p3) {
+    let JUMLAH_POIN = p1 + p2 + p3;
+    return JUMLAH_POIN;
+}
 
 
 
@@ -141,6 +169,20 @@ console.log ("Jumlah Poin adalah " + JUMLAH_POIN);
 // Buat fungsi "tentukanTierMember(poin)" yang menerima 1 parameter nilai poin,
 // dan mengembalikan (return) string nama tier beserta keterangannya.
 
+function Membertier(poin) {
+    if (poin >= 100) {
+        return "Platinum Diskon 20% + Gratis 1 Minuman Cappucino";
+    }
+    else if (poin >= 70) {
+        return "Gold Diskon 10% di setiap transaksi";
+    }
+    else if (poin >= 40) {
+        return "Silver Diskon 5% untuk menu minuman";
+    }
+    else {
+        return "Bronze Member Reguler (kumpulkan poin lagi)";
+    }
+}
 
 
 
@@ -149,6 +191,15 @@ console.log ("Jumlah Poin adalah " + JUMLAH_POIN);
 // 1. Hitung total poin dan tentukan tier untuk simulasi Pelanggan B (misal poin: 35, 25, 20).
 // 2. Hitung total poin dan tentukan tier untuk simulasi Pelanggan C (misal poin: 15, 10, 5).
 // 3. Cetak data Pelanggan B dan C ke tab Console.
+
+let JUMLAH_POIN1 = HITUNG_JUMLAH_POIN(
+    POIN_KOPI,
+    POIN_MAKANAN,
+    POIN_MERCHANDISE
+);
+
+console.log("Total poin menggunakan fungsi : " + JUMLAH_POIN1);
+console.log("Tier Member : " + Membertier (JUMLAH_POIN1));
 
 
 
@@ -159,6 +210,13 @@ console.log ("Jumlah Poin adalah " + JUMLAH_POIN);
 
 // TODO 6A:
 // Buat variabel Array bernama "menuRekomendasi" yang berisi minimal 5 nama menu kopi/makanan.
+let MENU_REKOMENDASI = [
+    "Butterscotch",
+    "Chocolatte",
+    "Mix Platter",
+    "Croissant",
+    "Cheesecake"
+];
 
 
 
@@ -167,10 +225,15 @@ console.log ("Jumlah Poin adalah " + JUMLAH_POIN);
 // Gunakan perulangan "for loop" untuk mencetak setiap menu ke Console dengan format:
 // "1. Nama Menu", "2. Nama Menu", dst. Gunakan (i + 1) untuk nomor urutnya.
 
-
+for (let i = 0; i < MENU_REKOMENDASI.length; i++) {
+    console.log((i + 1) + ". " + MENU_REKOMENDASI[i]);
+}
 
 
 // TODO 6C:
 // Cetak jumlah total menu di akhir daftar menggunakan properti ".length".
 // Akhiri program dengan: console.log("=== TUGAS MANDIRI SELESAI DENGAN SUKSES! ===");
+
+console.log("JUMLAH_MENU : " + MENU_REKOMENDASI.length);
+console.log("=== TUGAS MANDIRI SELESAI DENGAN SUKSES! ===");
 
